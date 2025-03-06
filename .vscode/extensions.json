@@ -1,5 +1,8 @@
 {
     "recommendations": [
-        "ritwickdey.liveserver"
+        "ritwickdey.liveserver",
+        "vscode-icons-team.vscode-icons",
+        "yzhang.markdown-all-in-one",
+        "tobermory.es6-string-html"
     ]
 }
