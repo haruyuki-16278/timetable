@@ -1,6 +1,6 @@
 import { basicStyle } from "../shared/style.mjs";
 import { range } from "../shared/utils.mjs";
-
+import { DayOfWeeks } from "../shared/constants.mjs";
 export class LessonTable extends HTMLElement {
   shadowRoot = undefined;
 
@@ -12,7 +12,7 @@ export class LessonTable extends HTMLElement {
       height: 100%;
       display: grid;
       grid-auto-flow: column;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       grid-template-rows: repeat(5, 1fr);
     }
   `;
@@ -20,12 +20,12 @@ export class LessonTable extends HTMLElement {
   html = /*html*/ `
     <style>${this.css}</style>
     <div class="lesson-table">
-      ${range(0, 5)
+      ${["", ...DayOfWeeks]
         .map((row) =>
           range(0, 5)
             .map(
               (col) => /*html*/ `
-                <lesson-table-item lesson-name="${row}-${col}"></lesson-table-item>
+                <lesson-table-item lesson-name="${col === 0 ? row : col}"></lesson-table-item>
               `
             )
             .join("")
