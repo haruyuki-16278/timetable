@@ -1,5 +1,23 @@
-import { LessonTableItem } from "./components/lesson-table-item.mjs";
-import { LessonTable } from "./components/lesson-table.mjs";
+// コンポーネントの登録を呼び出し
+import "./src/register.mjs";
 
-customElements.define("lesson-table-item", LessonTableItem);
-customElements.define("lesson-table", LessonTable);
+// ルーティング
+import { routes } from "./src/route.js";
+
+async function onHashChange() {
+  const hash = window.location.hash;
+  console.log(hash);
+  if (hash === "") {
+    window.location.hash = "#home";
+  }
+  const page = routes[hash];
+  if (!page) {
+    return;
+  }
+
+  const appRoot = document.querySelector("app-root");
+  appRoot.innerHTML = page;
+}
+
+window.addEventListener("hashchange", onHashChange);
+onHashChange();
