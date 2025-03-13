@@ -68,6 +68,7 @@ export class ClassTableItem extends HTMLElement {
       this.dispatchEvent(
         new CustomEvent("tableItemClicked", {
           bubbles: true,
+          composed: true,
           detail: this.dayperiod,
         })
       );

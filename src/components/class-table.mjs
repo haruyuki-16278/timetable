@@ -58,14 +58,6 @@ export class ClassTable extends HTMLElement {
 
   connectedCallback() {
     this.shadowRoot.innerHTML = this.html;
-    this.shadowRoot.addEventListener("tableItemClicked", (e) => {
-      this.dispatchEvent(
-        new CustomEvent("tableItemClicked", {
-          bubbles: true,
-          detail: e.detail,
-        })
-      );
-    });
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
